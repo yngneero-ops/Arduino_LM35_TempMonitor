@@ -1,21 +1,25 @@
-const int pins[] = {A0, A1, A2}; // Thêm chân A2 vào mảng
-int adcValues[3];                // Tăng kích thước mảng lên 3
+// Phần khai báo: Giữ mảng 3 chân của SV A ---
+const int pins[] = {A0, A1, A2}; 
+int adcValues[3];
+float nhietDo[3];
 
 void setup() {
   Serial.begin(9600);
-  // Cập nhật tiêu đề CSV thêm Sensor_A2
-  Serial.println("Time,Sensor_A0,Sensor_A1,Sensor_A2");
 }
 
 void loop() {
-  Serial.print(millis());
-  // Vòng lặp chạy từ 0 đến 2 để đọc cả 3 cảm biến
+  // Phần xử lý: Dùng vòng lặp của SV A để đọc cả 3 kênh ---
   for (int i = 0; i < 3; i++) {
     adcValues[i] = analogRead(pins[i]);
-    float temp = (adcValues[i] * 500.0) / 1023.0;
-    Serial.print(",");
-    Serial.print(temp);
+    nhietDo[i] = (adcValues[i] * 500.0) / 1023.0;
   }
-  Serial.println();
+
+  // Phần xuất dữ liệu: Dùng định dạng JSON của SV B nhưng thêm kênh t3 ---
+  Serial.print("{");
+  Serial.print("\"t1\": "); Serial.print(nhietDo[0], 1);
+  Serial.print(", \"t2\": "); Serial.print(nhietDo[1], 1);
+  Serial.print(", \"t3\": "); Serial.print(nhietDo[2], 1);
+  Serial.println("}");
+
   delay(1000);
 }
