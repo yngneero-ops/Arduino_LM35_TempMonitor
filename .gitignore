@@ -1,0 +1,9 @@
+*.elf
+*.hex
+build/
+.vscode/
+[Bb]in/
+[Oo]bj/
+*.exe
+*.dll
+*.pdsbak
