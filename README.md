@@ -40,3 +40,7 @@ Arduino_LM35_TempMonitor/
 │       └── LM35_TempReader.ino   # Mã nguồn xử lý chính
 ├── .gitignore                    # Loại bỏ các tệp tin rác (.exe, .dll)
 └── README.md                     # Tài liệu hướng dẫn dự án
+## Tác giả / Author
+* **Nero (Bình An)** - *Sinh viên Kỹ thuật máy tính - PTIT*
+* Portfolio: [https://yngneero-ops.github.io](https://yngneero-ops.github.io)
+* GitHub: [https://github.com/yngneero-ops](https://github.com/yngneero-ops)
